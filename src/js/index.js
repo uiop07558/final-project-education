@@ -5,11 +5,6 @@ import "../style/style.scss";
 import { router } from "./router.js";
 import VueRouter from "vue-router";
 
-import * as firebase from "firebase/app";
-import "firebase/analytics";
-import "firebase/auth";
-import "firebase/firestore";
-
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
 
@@ -19,8 +14,25 @@ new Vue({
 	components: {
 		app: app
 	},
-	template: "<app></app>"
+	template: "<app :vh='vh' :vw='vw'></app>"
 });
+
+
+
+let vh = window.innerHeight;
+let vw = window.innerWidth;
+
+window.onresize = function () {
+	vh = window.innerHeight;
+	vw = window.innerWidth;
+}
+
+
+
+import * as firebase from "firebase/app";
+import "firebase/analytics";
+import "firebase/auth";
+import "firebase/firestore";
 
 let firebaseConfig = {
 	apiKey: "AIzaSyAQO4R5i0ZzoZUcwfIBiv_femjF9BKRxGw",
