@@ -8,7 +8,9 @@
                  </div>
 
                  <div v-else>
-                     
+                     <b-dropdown block menu-class="w-100" style="color: #f9f9f9;">
+                         <b-dropdown-item :to="path(component)" v-for="component in components" :key="component" @click="activeComponent = component">{{component}}</b-dropdown-item>
+                     </b-dropdown>
                  </div>
             </b-col>
 
@@ -35,10 +37,7 @@
             }
         },
 
-        props: {
-            vh: Number,
-            vw: Number
-        },
+        props: ["vh", "vw"],
 
         components: {
             Users

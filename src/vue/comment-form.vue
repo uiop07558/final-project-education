@@ -62,4 +62,11 @@
         padding: 1%;
         margin-bottom: 5vh;
     }
+
+    @media (max-width: 576px) {
+        .item {
+            padding: 5%;
+            width: 100% !important;
+        }
+    }
 </style>

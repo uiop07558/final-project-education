@@ -8,23 +8,22 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
 
-new Vue({
+const root = new Vue({
 	el: "#app",
 	router,
+	data: {
+		vh: window.innerHeight,
+		vw: window.innerWidth
+	},
 	components: {
 		app: app
 	},
-	template: "<app :vh='vh' :vw='vw'></app>"
+	template: "<app v-bind:vh='vh' v-bind:vw='vw'></app>"
 });
 
-
-
-let vh = window.innerHeight;
-let vw = window.innerWidth;
-
 window.onresize = function () {
-	vh = window.innerHeight;
-	vw = window.innerWidth;
+	root.vh = window.innerHeight;
+	root.vw = window.innerWidth
 }
 
 
