@@ -108,4 +108,6 @@ dist
 .babelrc
 .firebaserc
 .vs/
-.firebase/hosting.ZGlzdA.cache
+.idea
+.firebase
+.vs
