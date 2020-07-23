@@ -103,11 +103,11 @@ dist
 # TernJS port file
 .tern-port
 
-.idea/
-.firebase/
+.idea/*
+.firebase/*
 .babelrc
 .firebaserc
-.vs/
+.vs/*
 .idea
 .firebase
 .vs
