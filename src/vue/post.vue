@@ -38,25 +38,20 @@
 
         created: function () {
             let self = this;
-            fetch(`https://jsonplaceholder.typicode.com/posts/${self.id}`)
+            fetch(`https://jsonplaceholder.typicode.com/posts/${self.id}`) //post
                 .then(response => response.json())
                 .then(data => self.post = data)
-                .then(post => self.getUser(post));
+                .then(post => fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}/`)) //user
+                .then(response => response.json())
+                .then(data => self.user = data);
 
-            fetch(`https://jsonplaceholder.typicode.com/posts/${self.id}/comments`)
+            fetch(`https://jsonplaceholder.typicode.com/posts/${self.id}/comments`) //comments
                 .then(response => response.json())
                 .then(data => self.comments = data);
 
         },
 
         methods: {
-            getUser(post) {
-                let self = this;
-                fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}/`)
-                    .then(response => response.json())
-                    .then(data => self.user = data);
-            },
-
             postComment(event) {
                 fetch(`https://jsonplaceholder.typicode.com/posts/${this.id}/comments`, {
                     method: "POST",
